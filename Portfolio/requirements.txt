@@ -1,0 +1,5 @@
+flask
+
+git init
+git add .
+git commit -m "Primeiro site Flask - Portfólio"
