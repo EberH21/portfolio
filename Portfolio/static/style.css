@@ -1,34 +1,345 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #121212;
-    color: #eee;
+/* ------------------- */
+/* CONFIGURAÇÃO GERAL  */
+/* ------------------- */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
 }
 
-header {
-    background: #1e1e1e;
-    padding: 20px;
+body {
+    background: #0a0a0a;
+    color: #f5f5f5;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ------------------- */
+/* FUNDO COM IMAGEM    */
+/* ------------------- */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("/static/img/fundo_portfolio.png") no-repeat center center/cover;
+    filter: brightness(0.35);
+    z-index: -1;
+}
+
+/* ------------------- */
+/* ANIMAÇÕES           */
+/* ------------------- */
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s forwards ease-out;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    animation: fadeIn 1.2s forwards ease-out;
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ------------------- */
+/* HEADER CENTRAL      */
+/* ------------------- */
+
+.header {
     text-align: center;
+    margin-top: 120px;
 }
 
-nav a {
-    color: #00bcd4;
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px #e50914;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    color: #cccccc;
+}
+
+/* ------------------- */
+/* BOTÕES              */
+/* ------------------- */
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn, .btn-outline {
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
     text-decoration: none;
-    margin: 0 10px;
+    font-weight: 600;
 }
 
-nav a:hover {
-    text-decoration: underline;
+/* Botão principal */
+.btn {
+    background: #e50914;
+    color: #fff;
+    box-shadow: 0 0 10px #e50914aa;
 }
 
-main {
-    padding: 20px;
+.btn:hover {
+    background: #ff1744;
+    box-shadow: 0 0 18px #ff1744cc;
+    transform: scale(1.05);
 }
 
-footer {
+/* Botão outline */
+.btn-outline {
+    border: 2px solid #e50914;
+    color: #e50914;
+}
+
+.btn-outline:hover {
+    background: #e50914;
+    color: #fff;
+    box-shadow: 0 0 16px #ff1744;
+    transform: scale(1.05);
+}
+
+/* ------------------- */
+/* PAINEL SOBRE MIM    */
+/* ------------------- */
+
+.painel {
+    background: #181818dd;
+    width: 80%;
+    max-width: 900px;
+    margin: 140px auto 60px;
+    padding: 40px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 20px #0008;
+}
+
+.painel-titulo {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+}
+
+.painel-texto {
+    font-size: 1.1rem;
+    line-height: 1.7rem;
+    color: #b0b0b0;
+}
+
+/* ------------------- */
+/* MOBILE              */
+/* ------------------- */
+@media (max-width: 600px) {
+
+    .title {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .painel {
+        width: 90%;
+        padding: 25px;
+    }
+}
+
+/* ------------------- */
+/* SEÇÃO CERTIFICADOS  */
+/* ------------------- */
+
+.certificados-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 30px;
     text-align: center;
-    padding: 10px;
-    background: #1e1e1e;
-    color: #aaa;
 }
+
+.certificados-titulo {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #f5f5f5;
+}
+
+/* GRID DOS CARDS */
+.certificados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* CARD INDIVIDUAL */
+.card-certificado {
+    background: #181818e6;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #0007;
+    border-left: 4px solid #e50914;
+    transition: 0.3s ease;
+}
+
+.card-certificado:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #e5091444;
+}
+
+.card-certificado h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.card-certificado p {
+    font-size: 1rem;
+    color: #c2c2c2;
+    line-height: 1.5rem;
+}
+
+/* Remove sublinhado e mantém card inteiro clicável */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.card-link h3, .card-link p {
+    pointer-events: none; /* Garante clique no card inteiro */
+}
+
+.card-certificado {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-certificado a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card-certificado h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3rem;
+    color: #222;
+}
+
+.card-certificado p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Efeito hover bonito */
+.card-certificado:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+
+
+
+/* ------------------------- */
+/* PÁGINA DE CONTATO         */
+/* ------------------------- */
+
+.btn-social {
+    display: block;
+    margin: 15px auto;
+    width: 250px;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 1.3rem;
+    background: #181818cc;
+    border: 2px solid #e50914;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.3s ease;
+    box-shadow: 0 0 10px #000;
+}
+
+.btn-social:hover {
+    background: #e50914;
+    color: #fff;
+    box-shadow: 0 0 15px #ff1744;
+    transform: scale(1.05);
+}
+
+.btn-social .emoji {
+    font-size: 2rem;
+}
+.btn-voltar {
+    display: block;
+    width: 180px;
+    margin: 40px auto 0;
+    text-align: center;
+    padding: 12px;
+    background: #e50914;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background: #ff1744;
+    box-shadow: 0 0 15px #ff1744;
+    transform: scale(1.05);
+}
+/* Título da página de contato */
+.titulo-contato {
+    text-align: center;
+    font-size: 2.2rem;        /* maior que antes, mas não chamativo */
+    font-weight: 600;
+    color: #eaeaea;           /* suave, não compete com os ícones */
+    margin-bottom: 10px;
+    opacity: 0.85;            /* deixa mais discreto */
+}
+
+/* Subtítulo */
+.subtitulo {
+    text-align: center;
+    font-size: 1.2rem;        /* maior porém sutil */
+    color: #bdbdbd;           /* quase cinza claro */
+    margin-bottom: 35px;      /* espaço para destacar os ícones */
+    opacity: 0.8;
+}
+
+.mensagem-final {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.3rem;        /* maior e mais legível */
+    line-height: 1.8rem;      /* espaçamento bonito */
+    color: #d0d0d0;           /* clarinho e suave */
+    opacity: 0.85;            /* discreto */
+    max-width: 700px;         /* mantém o texto bem enquadrado */
+    margin-left: auto;
+    margin-right: auto;       /* centraliza no container */
+}
+
+

@@ -1,59 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eber Henrique | Portfólio</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio | Eber</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
+
 <body>
-  <nav class="sidebar">
-    <ul>
-      <li><a href="#home">HOME</a></li>
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#projects">PROJECTS</a></li>
-      <li><a href="#certificates">CERTIFICATES</a></li>
-      <li><a href="#contact">CONTACT</a></li>
-    </ul>
-  </nav>
 
-  <section id="home" class="hero">
-    <div class="overlay"></div>
-    <div class="content">
-      <h1>Eber Henrique</h1>
-      <p>Desenvolvedor em formação | Apaixonado por tecnologia, música e cultura geek.</p>
+    <!-- Fundo da página -->
+    <div class="background"></div>
+
+    <!-- HEADER (fixo para todas as páginas) -->
+    <header class="header fade-in">
+        <h1 class="title">Olá, eu sou o Eber</h1>
+        <p class="subtitle">Futuro desenvolvedor • Tecnologia • Suporte Técnico</p>
+
+        <div class="buttons">
+            <a href="{{ url_for('projetos') }}" class="btn">Meus Projetos</a>
+            <a href="{{ url_for('contato') }}" class="btn-outline">Contato</a>
+        </div>
+    </header>
+
+    <!-- BLOCO DE CONTEÚDO DINÂMICO -->
+    {% block content %}
+    <!-- Conteúdo padrão da home (aparece apenas na / ) -->
+    <section class="painel fade-in-delay">
+        <h2 class="painel-titulo">Sobre Mim</h2>
+        <p class="painel-texto">
+            Iniciando minha jornada na programação, sou apaixonado por tecnologia.  
+            Tenho 4 anos de experiência em Suporte Técnico e Suporte ao Cliente.  
+            Estou iniciando minha jornada como desenvolvedor, aprendendo novas linguagens 
+            e buscando evoluir sempre.
+        </p>
+    </section>
+    <!-- Seção de Certificações -->
+<section class="certificados-container fade-in-delay">
+    <h2 class="certificados-titulo">Certificações & Diplomas</h2>
+
+    <div class="certificados-grid">
+
+        <div class="card-certificado">
+    <a href="{{ url_for('static', filename='Java.pdf') }}" target="_blank">
+        <h3>📘 Curso Java</h3>
+        <p>Curso de Java para saber o aprendizado básico da linguagem.</p>
+    </a>
+</div>
+
+<div class="card-certificado">
+    <a href="{{ url_for('static', filename='Javascript.pdf') }}" target="_blank">
+        <h3>📘 Lógica de Programação JavaScript</h3>
+        <p>Básico ao avançado — fundamentos essenciais da programação.</p>
+    </a>
+</div>
+
+<div class="card-certificado">
+    <a href="{{ url_for('static', filename='Logica de Programação  Pong e JavaScript.pdf') }}" target="_blank">
+        <h3>📘 Lógica de Programação — Jogo Pong com JavaScript</h3>
+        <p>Fundamentos essenciais da programação aplicados a jogos.</p>
+    </a>
+</div>
+
+<div class="card-certificado">
+    <a href="{{ url_for('static', filename='Lógica de programação JavaScript.pdf') }}" target="_blank">
+        <h3>📘 Curso JavaScript</h3>
+        <p>Curso com foco no aprendizado da linguagem JavaScript.</p>
+    </a>
+</div>
+
+
+        <div class="card-certificado">
+    <a href="{{ url_for('static', filename='Diploma.pdf') }}" target="_blank" class="card-link">
+        <h3>🎓 Diploma em Sistemas de Informação🎓</h3>
+        <p>Clique para visualizar meu diploma oficial em PDF.</p>
+    </a>
+</div>
+        <div class="card-certificado">
+            <h3>🎓 Processo de Conclusão Pos em Ads🎓</h3>
+        <p>Futuramente tera um diploma aqui.</p>
+        
+
     </div>
-  </section>
+</section>
 
-  <section id="about">
-    <h2>Sobre mim</h2>
-    <p>Sou formado em Sistemas de Informação, com 4 anos de experiência em suporte técnico.
-    Hoje foco em desenvolvimento web e criação de soluções criativas com Python.</p>
-  </section>
+    {% endblock %}
 
-  <section id="projects">
-    <h2>Projetos Recentes</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <img src="{{ url_for('static', filename='img/project1.png') }}" alt="Projeto 1">
-        <h3>Projeto Flask</h3>
-        <p>Meu primeiro portfólio usando Flask e HTML.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="certificates">
-    <h2>Certificados</h2>
-    <div class="cert-grid">
-      <img src="{{ url_for('static', filename='img/alura_logo.png') }}" alt="Alura">
-      <p>Desenvolvimento Web com Flask</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contato</h2>
-    <p><a href="mailto:eberhenrique@gmail.com">eberhenrique@gmail.com</a></p>
-  </section>
 </body>
 </html>
