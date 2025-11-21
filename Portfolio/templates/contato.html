@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato | Eber</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+
+<body>
+
+    <!-- Fundo -->
+    <div class="background"></div>
+
+    <main class="contato-container fade-in">
+
+        <h2 class="titulo-contato">Contato</h2>
+        <p class="subtitulo">Me encontre nas redes:</p>
+
+        <div class="botoes-contato">
+
+            <a class="btn-social whatsapp"
+               href="https://wa.me/55000000"
+               target="_blank">💬 WhatsApp</a>
+
+            <a class="btn-social linkedin"
+               href="https://www.linkedin.com/in//"
+               target="_blank">🔗 LinkedIn</a>
+
+            <a class="btn-social github"
+               href="https://github.com/"
+               target="_blank">🐙 GitHub</a>
+
+         
+            <a class="btn-social fone"
+               href="tel:+">📞 Telefone</a>
+
+        </div>
+
+        <p class="mensagem-final">
+            Obrigado por visitar meu portfólio!  
+            Estou ansioso para conversar com você 😊
+        </p>
+
+        <!-- Botão home -->
+        <a href="{{ url_for('home') }}" class="btn-voltar">
+            🏠 Home
+        </a>
+
+    </main>
+
+</body>
+</html>
